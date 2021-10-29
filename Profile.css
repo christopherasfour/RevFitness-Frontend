@@ -1,0 +1,162 @@
+ .u-section-1 {
+  background-image: linear-gradient(#c74c5d, #999999);
+}
+
+.u-section-1 .u-sheet-1 {
+  min-height: 821px;
+}
+
+.u-section-1 .u-image-1 {
+  width: 239px;
+  height: 239px;
+  background-image: url("images/ome-serious-unshaven-male-keeps-hands-together-dressed-dark-blue-shirt-has-talk-with-interlocutor-stands-against-white-wall.jpg");
+  background-position: 50% 50%;
+  margin: 12px 261px 0 auto;
+}
+
+.u-section-1 .u-text-1 {
+  font-size: 4.5rem;
+  margin: -162px auto 0 266px;
+}
+
+.u-section-1 .u-list-1 {
+  grid-template-rows: auto;
+  margin-top: 110px;
+  margin-bottom: 60px;
+}
+
+.u-section-1 .u-repeater-1 {
+  grid-template-columns: calc(25% - 7.5px) calc(25% - 7.5px) calc(25% - 7.5px) calc(25% - 7.5px);
+  grid-gap: 10px 10px;
+  min-height: 245px;
+}
+
+.u-section-1 .u-container-layout-1 {
+  padding: 30px;
+}
+
+.u-section-1 .u-text-2 {
+  width: 122px;
+  margin: 31px auto 0;
+}
+
+.u-section-1 .u-text-3 {
+  margin: 20px 1px 0;
+}
+
+.u-section-1 .u-container-layout-2 {
+  padding: 30px;
+}
+
+.u-section-1 .u-text-4 {
+  width: 122px;
+  margin: 31px auto 0;
+}
+
+.u-section-1 .u-text-5 {
+  margin: 20px 1px 0;
+}
+
+.u-section-1 .u-container-layout-3 {
+  padding: 30px;
+}
+
+.u-section-1 .u-text-6 {
+  width: 122px;
+  margin: 31px auto 0;
+}
+
+.u-section-1 .u-text-7 {
+  margin: 20px 1px 0;
+}
+
+.u-section-1 .u-container-layout-4 {
+  padding: 30px;
+}
+
+.u-section-1 .u-text-8 {
+  width: 122px;
+  margin: 31px auto 0;
+}
+
+.u-section-1 .u-text-9 {
+  margin: 20px 1px 0;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-repeater-1 {
+    grid-template-columns: repeat(4, calc(25% - 7.5px));
+    min-height: 202px;
+  }
+
+  .u-section-1 .u-text-3 {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .u-section-1 .u-text-5 {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .u-section-1 .u-text-7 {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .u-section-1 .u-text-9 {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-1 .u-text-1 {
+    margin-left: 204px;
+  }
+
+  .u-section-1 .u-repeater-1 {
+    grid-template-columns: repeat(2, calc(50% - 5px));
+    min-height: 619px;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-text-1 {
+    margin-left: 153px;
+  }
+
+  .u-section-1 .u-repeater-1 {
+    grid-template-columns: 100%;
+  }
+
+  .u-section-1 .u-container-layout-1 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .u-section-1 .u-container-layout-2 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .u-section-1 .u-container-layout-3 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .u-section-1 .u-container-layout-4 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-image-1 {
+    margin-right: 101px;
+  }
+
+  .u-section-1 .u-text-1 {
+    margin-left: 96px;
+  }
+}
