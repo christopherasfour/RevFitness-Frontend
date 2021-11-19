@@ -3,12 +3,12 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="92, 25, 870, 2">
+    <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>Profile</title>
+    <title>Workout</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
-<link rel="stylesheet" href="Profile.css" media="screen">
+<link rel="stylesheet" href="Workout.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 3.29.1, nicepage.com">
@@ -23,7 +23,7 @@
 		"sameAs": []
 }</script>
     <meta name="theme-color" content="#478ac9">
-    <meta property="og:title" content="Profile">
+    <meta property="og:title" content="Workout">
     <meta property="og:description" content="">
     <meta property="og:type" content="website">
   </head>
@@ -60,39 +60,160 @@
           </div>
         </nav>
       </div></header>
-    <section class="u-align-center u-clearfix u-gradient u-section-1" id="carousel_4913">
+    <section class="u-clearfix u-section-1" id="sec-1b9b">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <div alt="" class="u-image u-image-circle u-image-1" data-image-width="626" data-image-height="417"></div>
-        <h4 class="u-text u-text-default u-text-1"><b>
-            <span style="font-size: 3.75rem;">John Smith</span></b>
-        </h4>
-        <div class="u-expanded-width u-list u-list-1">
-          <div class="u-repeater u-repeater-1">
-            <div class="u-align-center u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-1">
-                <h1 class="u-text u-title u-text-2" data-animation-name="counter" data-animation-event="scroll" data-animation-duration="3000">92</h1>
-                <p class="u-text u-text-3">Hours Spent</p>
-              </div>
-            </div>
-            <div class="u-align-center u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-2">
-                <h1 class="u-text u-title u-text-4" data-animation-name="counter" data-animation-event="scroll" data-animation-duration="3000">25</h1>
-                <p class="u-text u-text-5">Total Workouts Completed</p>
-              </div>
-            </div>
-            <div class="u-align-center u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-3">
-                <h1 class="u-text u-title u-text-6" data-animation-name="counter" data-animation-event="scroll" data-animation-duration="3000">870</h1>
-                <p class="u-text u-text-7">Total Calories Burned Off</p>
-              </div>
-            </div>
-            <div class="u-align-center u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-4">
-                <h1 class="u-text u-title u-text-8" data-animation-name="counter" data-animation-event="scroll" data-animation-duration="3000">2</h1>
-                <p class="u-text u-text-9">Favorite Workouts</p>
-              </div>
-            </div>
-          </div>
+        <div class="u-clearfix u-custom-html u-custom-html-1">
+          <script> const FULL_DASH_ARRAY = 283;
+const WARNING_THRESHOLD = 10;
+const ALERT_THRESHOLD = 5;
+const COLOR_CODES = {
+  info: {
+    color: "green"
+  },
+  warning: {
+    color: "orange",
+    threshold: WARNING_THRESHOLD
+  },
+  alert: {
+    color: "red",
+    threshold: ALERT_THRESHOLD
+  }
+};
+const TIME_LIMIT = 20;
+let timePassed = 0;
+let timeLeft = TIME_LIMIT;
+let timerInterval = null;
+let remainingPathColor = COLOR_CODES.info.color;
+document.getElementById("app").innerHTML = `
+<div class="base-timer">
+  <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <g class="base-timer__circle">
+      <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
+      <path
+        id="base-timer-path-remaining"
+        stroke-dasharray="283"
+        class="base-timer__path-remaining ${remainingPathColor}"
+        d="
+          M 50, 50
+          m -45, 0
+          a 45,45 0 1,0 90,0
+          a 45,45 0 1,0 -90,0
+        "
+      ></path>
+    </g>
+  </svg>
+  <span id="base-timer-label" class="base-timer__label">${formatTime(
+    timeLeft
+  )}</span>
+</div>
+`;
+startTimer();
+function onTimesUp() {
+  clearInterval(timerInterval);
+}
+function startTimer() {
+  timerInterval = setInterval(() => {
+    timePassed = timePassed += 1;
+    timeLeft = TIME_LIMIT - timePassed;
+    document.getElementById("base-timer-label").innerHTML = formatTime(
+      timeLeft
+    );
+    setCircleDasharray();
+    setRemainingPathColor(timeLeft);
+    if (timeLeft === 0) {
+      onTimesUp();
+    }
+  }, 1000);
+}
+function formatTime(time) {
+  const minutes = Math.floor(time / 60);
+  let seconds = time % 60;
+  if (seconds < 10) {
+    seconds = `0${seconds}`;
+  }
+  return `${minutes}:${seconds}`;
+}
+function setRemainingPathColor(timeLeft) {
+  const { alert, warning, info } = COLOR_CODES;
+  if (timeLeft <= alert.threshold) {
+    document
+      .getElementById("base-timer-path-remaining")
+      .classList.remove(warning.color);
+    document
+      .getElementById("base-timer-path-remaining")
+      .classList.add(alert.color);
+  } else if (timeLeft <= warning.threshold) {
+    document
+      .getElementById("base-timer-path-remaining")
+      .classList.remove(info.color);
+    document
+      .getElementById("base-timer-path-remaining")
+      .classList.add(warning.color);
+  }
+}
+function calculateTimeFraction() {
+  const rawTimeFraction = timeLeft / TIME_LIMIT;
+  return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+}
+function setCircleDasharray() {
+  const circleDasharray = `${(
+    calculateTimeFraction() * FULL_DASH_ARRAY
+  ).toFixed(0)} 283`;
+  document
+    .getElementById("base-timer-path-remaining")
+    .setAttribute("stroke-dasharray", circleDasharray);
+} </script>
+          <style> .body {
+  font-family: sans-serif;
+  display: grid;
+  height: 100vh;
+  place-items: center;
+}
+.base-timer {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+.base-timer__svg {
+  transform: scaleX(-1);
+}
+.base-timer__circle {
+  fill: none;
+  stroke: none;
+}
+.base-timer__path-elapsed {
+  stroke-width: 7px;
+  stroke: grey;
+}
+.base-timer__path-remaining {
+  stroke-width: 7px;
+  stroke-linecap: round;
+  transform: rotate(90deg);
+  transform-origin: center;
+  transition: 1s linear all;
+  fill-rule: nonzero;
+  stroke: currentColor;
+}
+.base-timer__path-remaining.green {
+  color: rgb(65, 184, 131);
+}
+.base-timer__path-remaining.orange {
+  color: orange;
+}
+.base-timer__path-remaining.red {
+  color: red;
+}
+.base-timer__label {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+} </style>
+          <div id="app"></div>
         </div>
       </div>
     </section>
@@ -120,6 +241,16 @@
           </a>
         </div>
       </div></footer>
-
+    <section class="u-backlink u-clearfix u-grey-80">
+      <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
+        <span>Website Templates</span>
+      </a>
+      <p class="u-text">
+        <span>created with</span>
+      </p>
+      <a class="u-link" href="" target="_blank">
+        <span>Website Builder Software</span>
+      </a>. 
+    </section>
   </body>
 </html>
